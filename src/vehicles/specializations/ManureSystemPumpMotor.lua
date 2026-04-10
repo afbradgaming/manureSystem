@@ -11,7 +11,7 @@
 ---@class ManureSystemPumpMotor
 ManureSystemPumpMotor = {}
 ManureSystemPumpMotor.MOD_NAME = g_currentModName
-ManureSystemPumpMotor.MOD_DIR = g_CurrentModDirectory
+ManureSystemPumpMotor.MOD_DIR = g_currentModDirectory
 
 ManureSystemPumpMotor.PUMP_DIRECTION_IN = 1
 ManureSystemPumpMotor.PUMP_DIRECTION_OUT = -1
