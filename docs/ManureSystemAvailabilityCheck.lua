@@ -12,18 +12,18 @@ local modDirectory = g_currentModDirectory
 local modName = g_currentModName
 
 local storeItems = {}
-local modDesc = loadXMLFile("modDesc", modDirectory .. "modDesc.xml")
+local xmlFile = XMLFile.load("modDesc", modDirectory .. "modDesc.xml")
 
 local i = 0
 while true do
     local storeItemKey = ("modDesc.storeItems.storeItem(%d)"):format(i)
-    if not hasXMLProperty(modDesc, storeItemKey) then break end
-    local xmlFilename = getXMLString(modDesc, storeItemKey .. "#xmlFilename")
+    if not xmlFile:hasProperty(storeItemKey) then break end
+    local xmlFilename = xmlFile:getString(storeItemKey .. "#xmlFilename")
     storeItems[xmlFilename] = true
     i = i + 1
 end
 
-delete(modDesc)
+xmlFile:delete()
 
 local function isManureSystemActive()
     -- Might not be set at this point
@@ -31,7 +31,8 @@ local function isManureSystemActive()
         return true
     end
 
-    return g_modIsLoaded["FS22_manureSystem"] or g_modIsLoaded["fs22_manureSystem"]
+    return g_modIsLoaded["FS25_manureSystem"] or g_modIsLoaded["fs25_manureSystem"]
+        or g_modIsLoaded["FS22_manureSystem"] or g_modIsLoaded["fs22_manureSystem"] -- backward compatibility for mods targeting FS22
 end
 
 local function ignoreStoreItems(self, superFunc, xmlFilename, baseDir, ...)

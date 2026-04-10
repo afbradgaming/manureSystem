@@ -255,7 +255,7 @@ function ManureSystem:loadManureSystemSamples()
 
     if xmlFile ~= nil then
         local soundsNode = getRootNode()
-        self.samples.pump = self.soundManager:loadSampleFromXML(xmlFile.handle, "vehicle.sounds", "pump", self.modDirectory, soundsNode, 1, AudioGroup.VEHICLE, nil, nil)
+        self.samples.pump = self.soundManager:loadSampleFromXML(xmlFile, "vehicle.sounds", "pump", self.modDirectory, soundsNode, 1, AudioGroup.VEHICLE, nil, nil)
         xmlFile:delete()
     end
 end

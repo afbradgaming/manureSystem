@@ -9,7 +9,7 @@ build:
         - docs
         - .git
         - .idea
-    outputName: FS22_manureSystem
+    outputName: FS25_manureSystem
     cleanOutput: true
     code: src/
     outputTextures:
